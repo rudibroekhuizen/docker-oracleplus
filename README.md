@@ -15,7 +15,7 @@ Connect to Oracle database using sqlplus from remote machine:
 sqlplus sys/manager@//localhost:1521/ORCLCDB as sysdba
 ```
 
-Connect to Oracle database from container:
+Connect to Oracle database in container:
 ```bash
 sqlplus / as sysdba
 ```
