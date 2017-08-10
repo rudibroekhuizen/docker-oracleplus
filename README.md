@@ -19,3 +19,8 @@ Connect to Oracle database in container:
 ```bash
 sqlplus / as sysdba
 ```
+
+Get sql_text table entries:
+```bash
+sqlplus -s sys/manager as sysdba @/opt/script/sql_text.sql > /tmp/sql_text.log
+```
