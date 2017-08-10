@@ -6,4 +6,4 @@ services:
     environment:
       ORACLE_SID: ORCLCDB
       ORACLE_PDB: ORCLPDB1
-      ORACLE_PWD: 
+      ORACLE_PWD: manager
