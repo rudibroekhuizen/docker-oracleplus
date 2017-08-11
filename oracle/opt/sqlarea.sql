@@ -31,5 +31,5 @@ select JSON_OBJECT (
 'elapsed_time' is ELAPSED_TIME,
 'last_active_time' is LAST_ACTIVE_TIME,
 'last_load_time' is LAST_LOAD_TIME
-) from v$sqlarea;
+) from v$sqlarea where last_active_time > sysdate-1/1440;
 exit
