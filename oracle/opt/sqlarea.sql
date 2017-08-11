@@ -3,5 +3,33 @@ set wrap off
 set linesize 32767
 set pagesize 0
 set feedback off
-select JSON_OBJECT('EXECUTIONS' is EXECUTIONS , 'SQL_ID' is SQL_ID) from v$sqlarea;
+select JSON_OBJECT (
+'SQL_TEXT' is sql_text,
+'SQL_ID' is SQL_ID,
+'SHARABLE_MEM' is sharable_mem,
+'PERSISTENT_MEM' is persistent_mem,
+'RUNTIME_MEM ' is runtime_mem,
+'SORTS' is sorts,
+'VERSION_COUNT' is version_count,
+'LOADED_VERSIONS' is loaded_versions,
+'OPEN_VERSIONS' is open_versions,
+'USERS_OPENING' is users_opening,
+'FETCHES' is fetches,
+'EXECUTIONS' is executions,
+'USERS_EXECUTING' is users_executing,
+'LOADS' is loads,
+'FIRST_LOAD_TIME' is first_load_time,
+'PARSE_CALLS' is parse_calls,
+'DISK_READS' is disk_reads,
+'BUFFER_GETS' is buffer_gets,
+'ROWS_PROCESSED' is rows_processed,
+'COMMAND_TYPE' is command_type,
+'OPTIMIZER_MODE' is optimizer_mode,
+'ACTION' is action,
+'SERIALIZABLE_ABORTS' is serializable_aborts,
+'CPU_TIME' is cpu_time,
+'ELAPSED_TIME' is elapsed_time,
+'LAST_ACTIVE_TIME' is last_active_time,
+'LAST_LOAD_TIME' is last_load_time
+) from v$sqlarea;
 exit
