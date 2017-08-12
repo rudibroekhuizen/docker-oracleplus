@@ -4,7 +4,7 @@ set linesize 32767
 set pagesize 0
 set feedback off
 select JSON_OBJECT (
-'sql_text' is regexp_replace(SQL_TEXT,'"|\s|"','|'),
+'sql_text' is regexp_replace(regexp_replace(SQL_TEXT,'"','\"'),'\s','|'),
 'sql_id' is SQL_ID,
 'sharable_mem' is SHARABLE_MEM,
 'persistent_mem' is PERSISTENT_MEM,
