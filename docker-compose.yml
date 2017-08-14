@@ -9,6 +9,11 @@ services:
       - oraclelog:/tmp
       - ./oracle/opt:/opt/script
 
+  sqlcl:
+    extends:
+      file: ./sqlcl/docker-compose.yml
+      service: sqlcl
+
   elasticsearch:
     extends:
       file: ./elasticsearch/docker-compose.yml
