@@ -5,14 +5,16 @@ services:
     extends:
       file: ./oracle/docker-compose.yml
       service: oracle
-    volumes:
-      - oraclelog:/tmp
-      - ./oracle/opt:/opt/script
 
   sqlcl:
     extends:
       file: ./sqlcl/docker-compose.yml
       service: sqlcl
+    environment:
+      SQLPATH: '/scripts'
+    volumes:
+      - oraclelog:/tmp
+      - ./sqlcl/scripts:/scripts
 
   elasticsearch:
     extends:
