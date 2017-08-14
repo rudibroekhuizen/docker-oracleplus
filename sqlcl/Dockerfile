@@ -7,6 +7,4 @@ RUN yum -y install wget unzip java-1.8.0-openjdk-devel \
 ENV PATH=/sqlcl/bin:$PATH
 RUN wget https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 -O /usr/bin/jq && chmod +x /usr/bin/jq
 
-VOLUME ["/scripts", "/scripts-lib", "/scripts-config", "/logon", "/http-client" ]
-ENV SQLPATH=/scripts:/scripts-lib:/scripts-config:/logon
 ENTRYPOINT ["/bin/bash", "/sqlcl/bin/sql" ]
