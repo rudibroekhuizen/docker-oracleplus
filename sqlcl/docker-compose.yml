@@ -3,3 +3,4 @@ version: '2'
 services:
   sqlcl:
     build: ./
+    tty: true
