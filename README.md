@@ -15,12 +15,14 @@ Connect to Oracle database using sqlplus from remote machine:
 sqlplus sys/manager@//localhost:1521/ORCLCDB as sysdba
 ```
 
-Connect to Oracle database in container:
+Connect to Oracle database:
 ```bash
+docker exec -it dockeroracleplus_sqlcl_1 sh
 sqlplus / as sysdba
 ```
 
-Get sql_text table entries:
+Send all records from v$sqlarea to Elasticsearch using sqlcl:
 ```bash
-sqlplus -s sys/manager as sysdba @/opt/script/sqlarea.sql > /tmp/sqlarea.json
+docker exec -it dockeroracleplus_sqlcl_1 sh
+sql -s sys/manager@oracle:1521/ORCLCDB as sysdba @/scripts/sqlarea.sql | jq -c '.results[].items[]' > /tmp/sqlarea.json
 ```
