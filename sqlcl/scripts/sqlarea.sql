@@ -50,5 +50,5 @@ physical_write_requests,
 physical_write_bytes,
 locked_total,
 pinned_total
-from v$sqlarea;
+from v$sqlarea where last_active_time > sysdate-1/1440;
 exit
