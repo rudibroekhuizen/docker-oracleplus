@@ -1,3 +1,4 @@
+set feedback off;
 select /*json*/ 
 sql_text,
 sql_id,
