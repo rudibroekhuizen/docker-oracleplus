@@ -1,6 +1,5 @@
 set feedback off;
 spool spool.log;
-select /*json*/ systimestamp from dual;
 select /*json*/
 sql_text,
 sql_id,
@@ -51,6 +50,7 @@ physical_read_bytes,
 physical_write_requests,
 physical_write_bytes,
 locked_total,
-pinned_total
+pinned_total,
+'sqlarea' AS tag
 from v$sqlarea where last_active_time > sysdate-1/1440;
 spool off;
