@@ -1,5 +1,7 @@
 set feedback off;
-select /*json*/ 
+spool spool.log;
+select /*json*/ systimestamp from dual;
+select /*json*/
 sql_text,
 sql_id,
 sharable_mem
@@ -51,4 +53,4 @@ physical_write_bytes,
 locked_total,
 pinned_total
 from v$sqlarea where last_active_time > sysdate-1/1440;
-exit
+spool off;
