@@ -15,14 +15,23 @@ Connect to Oracle database using sqlplus from remote machine:
 sqlplus sys/manager@//localhost:1521/ORCLCDB as sysdba
 ```
 
-Connect to Oracle database:
+Connect to Oracle database using sqlplus:
 ```bash
-docker exec -it dockeroracleplus_sqlcl_1 sh
-sqlplus / as sysdba
+$ docker exec -it dockeroracleplus_sqlcl_1 sh
+$ sqlplus / as sysdba
 ```
 
 Send all records from v$sqlarea to Elasticsearch using sqlcl:
 ```bash
-docker exec -it dockeroracleplus_sqlcl_1 sh
-sql -s sys/manager@oracle:1521/ORCLCDB as sysdba @/scripts/sqlarea.sql | jq -c '.results[].items[]' > /tmp/sqlarea.json
+$ docker exec -it dockeroracleplus_sqlcl_1 sh
+$ sql -s sys/manager@oracle:1521/ORCLCDB as sysdba @/scripts/sqlarea.sql | jq -c '.results[].items[]' > /tmp/sqlarea.json
+```
+
+Send all records from v$sqlarea to Elasticsearch, repeat every minute, for 1 hour:
+```bash
+$ docker exec -it dockeroracleplus_sqlcl_1 sh
+$ sql sys/manager@//localhost:1521/ORCLCDB as sysdba
+SQL> @sqlarea.sql
+SQL> repeat 60 60
+$ yes "jq -c '.results[].items[]' spool.log" | head -n 60 | parallel -j1 --delay 60 > /tmp/sqlarea.json
 ```
