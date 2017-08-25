@@ -1,5 +1,5 @@
 set feedback off;
-spool spool.log;
+spool /tmp/spool.log;
 select /*json*/
 sql_text,
 sql_id,
