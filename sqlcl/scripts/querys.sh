@@ -1,3 +1,5 @@
+## doesn't work, too slow after a couple of repeated connections
+
 #!/bin/bash
 while :
 do
