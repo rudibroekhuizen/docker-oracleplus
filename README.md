@@ -30,7 +30,7 @@ $ sql -s sys/manager@oracle:1521/ORCLCDB as sysdba @/scripts/sqlarea.sql | jq -c
 Send all records from v$sqlarea to Elasticsearch, repeat every minute, for 1 hour:
 ```bash
 $ docker exec -it dockeroracleplus_sqlcl_1 sh
-$ sql sys/manager@//localhost:1521/ORCLCDB as sysdba
+$ sql sys/manager@//oracle:1521/ORCLCDB as sysdba
 SQL> @sqlarea.sql
 SQL> repeat 60 60
 $ yes "jq -c '.results[].items[]' spool.log" | head -n 60 | parallel -j1 --delay 60 > /tmp/sqlarea.json
