@@ -1,5 +1,5 @@
 set feedback off;
-spool /tmp/spool.log;
+spool spool.log;
 select /*json*/
 sql_text,
 sql_id,
@@ -56,3 +56,4 @@ pinned_total,
 'sqlarea' AS tag
 from v$sqlarea where last_active_time > sysdate-1/1440;
 spool off;
+! jq -c '.results[].items[]' spool.log >> /tmp/sqlarea.json
