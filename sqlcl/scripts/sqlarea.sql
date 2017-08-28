@@ -1,5 +1,8 @@
-set feedback off;
-spool spool.log;
+HISTORY clear;
+SET feedback off;
+SPOOL spool.log;
+
+-- Retrieve records from v$sqlarea
 select /*json*/
 sql_text,
 sql_id,
@@ -54,6 +57,15 @@ physical_write_bytes,
 locked_total,
 pinned_total,
 'sqlarea' AS tag
-from v$sqlarea where last_active_time > sysdate-1/1440;
-spool off;
+FROM v$sqlarea WHERE last_active_time > sysdate-1/1440;
+
+-- Retrieve records from v$session table
+SELECT /*json*/ v$session.*,'session' AS "tag" FROM v$session WHERE status='ACTIVE' AND TYPE != 'BACKGROUND';
+
+SPOOL off;
+
+-- Convert results to compact json
 ! jq -c '.results[].items[]' spool.log >> /tmp/sqlarea.json
+
+-- Repeat 2147483647 times, every 60 seconds
+REPEAT 2147483647 60
