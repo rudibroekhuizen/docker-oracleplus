@@ -68,4 +68,6 @@ SPOOL off;
 ! jq -c '.results[].items[]' spool.log >> /tmp/sqlarea.json
 
 -- Repeat 2147483647 times, every 60 seconds
-REPEAT 2147483647 60
+-- REPEAT 2147483647 60;
+
+-- EXIT;
