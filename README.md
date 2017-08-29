@@ -17,16 +17,23 @@ cd docker-images/OracleDatabase/dockerfiles
 docker-compose up
 ```
 
-### Connect to Oracle using sqlplus from remote machine
+### Connect to Oracle using sqlplus from host
 ```bash
 sqlplus sys/manager@//localhost:1521/ORCLCDB as sysdba
 ```
 
-### Connect to Oracle database using sqlplus from container
+### Connect to Oracle database using SQL\*Plus from container
 ```bash
 $ docker exec -it dockeroracleplus_sqlcl_1 sh
 $ sqlplus / as sysdba
 ```
+
+### Connect to Oracle database using SQLcl from container
+```bash
+$ docker exec -it dockeroracleplus_sqlcl_1 sh
+$ sql sys/manager@//oracle:1521/ORCLCDB as sysdba
+```
+
 
 ### Send all records from v$sqlarea to Elasticsearch using sqlcl
 ```bash
