@@ -17,6 +17,7 @@ Set max_map_count for Elasticsearch:
 sudo echo 'vm.max_map_count=262144' >> /etc/sysctl.conf
 ```
 
+
 ### Download this repo and start containers
 ```bash
 cd ~/
@@ -25,10 +26,12 @@ cd docker-oracleplus
 docker-compose up
 ```
 
+
 ### Connect to Oracle using SQL\*Plus from host
 ```bash
 sqlplus sys/manager@//localhost:1521/ORCLCDB as sysdba
 ```
+
 
 ### Connect to Oracle database using SQL\*Plus from container
 ```bash
@@ -36,11 +39,13 @@ $ docker exec -it dockeroracleplus_sqlcl_1 sh
 $ sqlplus / as sysdba
 ```
 
+
 ### Connect to Oracle database using SQLcl from container
 ```bash
 $ docker exec -it dockeroracleplus_sqlcl_1 sh
 $ sql sys/manager@//oracle:1521/ORCLCDB as sysdba
 ```
+
 
 ### Send all records from v$sqlarea to Elasticsearch using SQLcl
 ```bash
@@ -57,4 +62,6 @@ SQL> repeat 60 60
 ```
 
 ### Remove all containers including volumes
+```bash
 docker-compose down --volumes
+```
