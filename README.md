@@ -25,7 +25,7 @@ cd docker-oracleplus
 docker-compose up
 ```
 
-### Connect to Oracle using sqlplus from host
+### Connect to Oracle using SQL\*Plus from host
 ```bash
 sqlplus sys/manager@//localhost:1521/ORCLCDB as sysdba
 ```
@@ -42,7 +42,7 @@ $ docker exec -it dockeroracleplus_sqlcl_1 sh
 $ sql sys/manager@//oracle:1521/ORCLCDB as sysdba
 ```
 
-### Send all records from v$sqlarea to Elasticsearch using sqlcl
+### Send all records from v$sqlarea to Elasticsearch using SQLcl
 ```bash
 $ docker exec -it dockeroracleplus_sqlcl_1 sh
 $ sql -s sys/manager@oracle:1521/ORCLCDB as sysdba @/scripts/tojson.sql | jq -c '.results[].items[]' > /tmp/output.json
