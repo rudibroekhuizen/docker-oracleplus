@@ -33,5 +33,4 @@ $ docker exec -it dockeroracleplus_sqlcl_1 sh
 $ sql sys/manager@//oracle:1521/ORCLCDB as sysdba
 SQL> @sqlarea.sql
 SQL> repeat 60 60
-$ yes "jq -c '.results[].items[]' /tmp/spool.log" | head -n 60 | parallel -j1 --delay 60 > /tmp/sqlarea.json
 ```
