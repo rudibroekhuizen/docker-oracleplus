@@ -51,3 +51,6 @@ $ sql sys/manager@//oracle:1521/ORCLCDB as sysdba
 SQL> @tojson.sql
 SQL> repeat 60 60
 ```
+
+### Remove all containers including volumes
+docker-compose down --volumes
