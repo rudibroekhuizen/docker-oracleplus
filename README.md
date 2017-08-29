@@ -3,14 +3,18 @@
 ## Overview
 Oracle database with Kibana dashboard running on Docker. Tested on Ubuntu 16.04 with Docker version 17.05.0-ce.
 
-## Usage
-Build image (https://github.com/oracle/docker-images/tree/master/OracleDatabase):
+### Prerequisites
+Build Oracle docker image (https://github.com/oracle/docker-images/tree/master/OracleDatabase):
 ```bash
 git clone https://github.com/oracle/docker-images
 cd docker-images/OracleDatabase/dockerfiles
 ./buildDockerImage.sh -v 12.2.0.1 -e
 ```
-### Install Docker
+Install Docker
+Set max_map_count for Elasticsearch: 
+```bash
+echo 'vm.max_map_count=262144' >> /etc/sysctl.conf
+```
 
 ### Start containers
 ```bash
@@ -33,7 +37,6 @@ $ sqlplus / as sysdba
 $ docker exec -it dockeroracleplus_sqlcl_1 sh
 $ sql sys/manager@//oracle:1521/ORCLCDB as sysdba
 ```
-
 
 ### Send all records from v$sqlarea to Elasticsearch using sqlcl
 ```bash
