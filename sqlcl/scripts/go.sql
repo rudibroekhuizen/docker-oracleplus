@@ -1,3 +1,3 @@
 history clear
-@sqlarea.sql
+@tojson.sql
 repeat 60 60
