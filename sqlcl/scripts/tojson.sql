@@ -65,7 +65,7 @@ SELECT /*json*/ v$session.*,'session' AS "tag" FROM v$session WHERE status='ACTI
 SPOOL off;
 
 -- Convert results to compact json
-! jq -c '.results[].items[]' spool.log >> /tmp/sqlarea.json
+! jq -c '.results[].items[]' spool.log >> /tmp/output.json
 
 -- Repeat 2147483647 times, every 60 seconds
 -- REPEAT 2147483647 60;
