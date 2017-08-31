@@ -43,20 +43,20 @@ $ sqlplus / as sysdba
 ### Connect to Oracle database using SQLcl from container
 ```bash
 $ docker exec -it dockeroracleplus_sqlcl_1 sh
-$ sql sys/manager@//oracle:1521/ORCLCDB as sysdba
+$ sqlcl sys/manager@//oracle:1521/ORCLCDB as sysdba
 ```
 
 
 ### Send all records from v$sqlarea to Elasticsearch using SQLcl
 ```bash
 $ docker exec -it dockeroracleplus_sqlcl_1 sh
-$ sql -s sys/manager@oracle:1521/ORCLCDB as sysdba @/scripts/tojson.sql | jq -c '.results[].items[]' > /tmp/output.json
+$ sqlcl -s sys/manager@oracle:1521/ORCLCDB as sysdba @/scripts/tojson.sql | jq -c '.results[].items[]' > /tmp/output.json
 ```
 
 ### Send all records from v$sqlarea to Elasticsearch, repeat every minute, for 1 hour
 ```bash
 $ docker exec -it dockeroracleplus_sqlcl_1 sh
-$ sql sys/manager@//oracle:1521/ORCLCDB as sysdba
+$ sqlcl sys/manager@//oracle:1521/ORCLCDB as sysdba
 SQL> @tojson.sql
 SQL> repeat 60 60
 ```
