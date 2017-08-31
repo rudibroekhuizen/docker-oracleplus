@@ -65,3 +65,8 @@ SQL> repeat 60 60
 ```bash
 docker-compose down --volumes
 ```
+
+### Open Kibana
+```bash
+http://localhost:5601
+```
