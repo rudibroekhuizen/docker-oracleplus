@@ -61,12 +61,12 @@ SQL> @tojson.sql
 SQL> repeat 60 60
 ```
 
-### Remove all containers including volumes
-```bash
-docker-compose down --volumes
-```
-
 ### Open Kibana
 ```bash
 http://localhost:5601
+```
+
+### Remove all containers including volumes
+```bash
+docker-compose down --volumes
 ```
