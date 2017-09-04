@@ -1,15 +1,8 @@
--- Create PDB Sakila:
-
-CREATE PLUGGABLE DATABASE "SAKILA" ADMIN USER "Admin" IDENTIFIED BY "password"
-  FILE_NAME_CONVERT=(
-    '/opt/oracle/oradata/ORCLCDB/pdbseed/system01.dbf', '/opt/oracle/oradata/ORCLCDB/pdbseed/system0-SAKILA.dbf',
-    '/opt/oracle/oradata/ORCLCDB/pdbseed/sysaux01.dbf', '/opt/oracle/oradata/ORCLCDB/pdbseed/sysaux0-SAKILA.dbf',
-    '/opt/oracle/oradata/ORCLCDB/pdbseed/undotbs01.dbf', '/opt/oracle/oradata/ORCLCDB/pdbseed/undotbs0-SAKILA.dbf',
-    '/opt/oracle/oradata/ORCLCDB/pdbseed/temp012017-09-01_13-42-54-149-PM.dbf', '/opt/oracle/oradata/ORCLCDB/pdbseed/temp012017-09-01_13-42-54-149-P-SAKILA.dbf'
-  )
-  STORAGE UNLIMITED TEMPFILE REUSE;
+-- SHOW parameter DB_CREATE_FILE_DEST;
+ALTER SYSTEM SET DB_CREATE_FILE_DEST='/opt/oracle/oradata';
 
 -- SHOW PDBS;
+CREATE PLUGGABLE DATABASE "SAKILA" ADMIN USER "ADMIN" IDENTIFIED BY password roles=(DBA) STORAGE (MAXSIZE 2G MAX_SHARED_TEMP_SIZE 100M); 
 
 -- Change status of SAKILA database:
 ALTER PLUGGABLE DATABASE SAKILA OPEN READ WRITE;
