@@ -46,7 +46,6 @@ $ docker exec -it dockeroracleplus_sqlcl_1 sh
 $ sqlcl sys/manager@//oracle:1521/ORCLCDB as sysdba
 ```
 
-
 ### Send all records from v$sqlarea to Elasticsearch using SQLcl
 ```bash
 $ docker exec -it dockeroracleplus_sqlcl_1 sh
@@ -64,6 +63,11 @@ SQL> repeat 60 60
 ### Open Kibana
 ```bash
 http://localhost:5601
+```
+
+### Open EM
+```bash
+https://localhost:5500/em
 ```
 
 ### Remove all containers including volumes
