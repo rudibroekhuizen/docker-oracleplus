@@ -9,3 +9,4 @@ services:
       ORACLE_PWD: manager
     ports:
       - 1521:1521
+      - 5500:5500
