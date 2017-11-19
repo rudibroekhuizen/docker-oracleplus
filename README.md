@@ -35,6 +35,8 @@ sqlplus sys/manager@//localhost:1521/ORCLCDB as sysdba
 
 ### Connect to Oracle database using SQL\*Plus from container
 ```bash
+$ docker-compose exec sqlcl sh
+or
 $ docker exec -it dockeroracleplus_sqlcl_1 sh
 $ sqlplus / as sysdba
 ```
