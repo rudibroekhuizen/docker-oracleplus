@@ -40,7 +40,7 @@ $ sqlplus / as sysdba
 
 ### Connect to Oracle database using SQLcl from container
 ```bash
-$ docker exec -it dockeroracleplus_sqlcl_1 sh
+$ docker-compose exec sqlcl sh
 $ sqlcl sys/manager@//oracle:1521/ORCLCDB as sysdba
 ```
 
@@ -62,7 +62,15 @@ http://localhost:5601
 https://localhost:5500/em
 ```
 
-### Remove all containers including volumes
+### Useful commands
 ```bash
-docker-compose down --volumes
+# Check CPU consumption
+$ docker stats $(docker inspect -f "{{ .Name }}" $(docker ps -q))
+
+# Remove containers, volumes and images
+$ docker-compose down -v --remove-orphans --rmi all
+
+# Delete all indexes in Elasticsearch (except dashboard:
+$ docker-compose exec logstash sh
+$ curl -XDELETE elasticsearch:9200/logstash-*
 ```
