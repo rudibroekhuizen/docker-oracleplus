@@ -47,7 +47,10 @@ SQL> @sakila.sql
 
 ### Browse tables in sqldeveloper
 Connect to localhost/sys as sysdba. 
-Run this query: ALTER SESSION SET CONTAINER=SAKILA;
+Run query: 
+```bash
+ALTER SESSION SET CONTAINER=SAKILA;
+```
 Look for SAKILA user under "Other Users".
 
 
