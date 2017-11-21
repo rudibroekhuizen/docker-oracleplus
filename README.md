@@ -45,6 +45,12 @@ $ sqlcl sys/manager@//oracle:1521/ORCLCDB as sysdba
 SQL> @sakila.sql
 ```
 
+### Browse tables in sqldeveloper
+Connect to localhost/sys as sysdba. 
+Run this query: ALTER SESSION SET CONTAINER=SAKILA;
+Look for SAKILA user under "Other Users".
+
+
 ### Send all records from v$sqlarea to Elasticsearch, repeat every minute, for 1 hour
 ```bash
 $ docker-compose exec sqlcl bash
