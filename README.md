@@ -70,7 +70,7 @@ $ docker stats $(docker inspect -f "{{ .Name }}" $(docker ps -q))
 # Remove containers, volumes and images
 $ docker-compose down -v --remove-orphans --rmi all
 
-# Delete all indexes in Elasticsearch (except dashboard:
+# Delete all indexes in Elasticsearch (except dashboard):
 $ docker-compose exec logstash sh
 $ curl -XDELETE elasticsearch:9200/logstash-*
 ```
