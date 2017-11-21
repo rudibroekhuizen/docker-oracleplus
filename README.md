@@ -34,19 +34,20 @@ sqlplus sys/manager@//localhost:1521/ORCLCDB as sysdba
 ```bash
 $ docker-compose exec sqlcl sh
 or
-$ docker exec -it dockeroracleplus_sqlcl_1 sh
+$ docker exec -it dockeroracleplus_sqlcl_1 bash
 $ sqlplus / as sysdba
 ```
 
-### Connect to Oracle database using SQLcl from container
+### Import Sakila database
 ```bash
-$ docker-compose exec sqlcl sh
+$ docker-compose exec sqlcl bash
 $ sqlcl sys/manager@//oracle:1521/ORCLCDB as sysdba
+SQL> @sakila.sql
 ```
 
 ### Send all records from v$sqlarea to Elasticsearch, repeat every minute, for 1 hour
 ```bash
-$ docker-compose exec sqlcl sh
+$ docker-compose exec sqlcl bash
 $ sqlcl sys/manager@//oracle:1521/ORCLCDB as sysdba
 SQL> @tojson.sql
 SQL> repeat 60 60
