@@ -74,6 +74,11 @@ https://localhost:5500/em
 
 ### Useful commands
 ```bash
+
+# Export database Sakila:
+$ docker-compose exec oracle bash
+expdp system/manager@//localhost:1521/sakila FULL=Y
+
 # Check CPU consumption
 $ docker stats $(docker inspect -f "{{ .Name }}" $(docker ps -q))
 
