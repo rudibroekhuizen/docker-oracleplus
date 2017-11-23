@@ -77,7 +77,7 @@ https://localhost:5500/em
 
 # Export database Sakila:
 $ docker-compose exec oracle bash
-expdp system/manager@//localhost:1521/sakila FULL=Y
+expdp system/manager@//localhost:1521/sakila full=y reuse_dumpfiles=y
 
 # Check CPU consumption
 $ docker stats $(docker inspect -f "{{ .Name }}" $(docker ps -q))
