@@ -28,5 +28,5 @@ TRUNC(cpu_time/DECODE(executions,0,1,executions)) "cpu_time_per_execution",
 elapsed_time,
 TRUNC(elapsed_time/DECODE(executions,0,1,executions)) "elapsed_time_per_execution",
 to_char(last_active_time,'DD-MM-YYYY HH24:MI:SS') AS last_active_time,
-'sqlarea' AS tag
+'sqlstats' AS tag
 FROM v$sqlstats;
