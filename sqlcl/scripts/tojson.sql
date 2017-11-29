@@ -2,8 +2,11 @@ HISTORY clear;
 SET feedback off;
 SPOOL spool.log;
 
+-- Check backups
+SELECT /*json*/ * FROM V_$RMAN_BACKUP_JOB_DETAILS WHERE start_time > sysdate-1/1440;
+
 -- Retrieve records from v$sqlarea
-select /*json*/
+SELECT /*json*/
 sql_text,
 sql_id,
 sharable_mem
@@ -70,8 +73,3 @@ SPOOL off;
 
 -- Convert results to compact json
 ! jq -c '.results[].items[]' spool.log >> /tmp/output.json
-
--- Repeat 2147483647 times, every 60 seconds
--- REPEAT 2147483647 60;
-
--- EXIT;
