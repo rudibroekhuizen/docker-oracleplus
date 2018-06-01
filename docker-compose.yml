@@ -10,22 +10,15 @@ services:
     ports:
       - 1521:1521
       - 5500:5500
-
-  adminer:
-    build: ./adminer
-    #ports:
-    #  - "8080:8080"
     expose:
-      - "8080"
-#   environment:
-#     ADMINER_PLUGINS: 'tables-filter tinymce'
+      - "5500"
     labels:
-      - "traefik.backend=naturalis-adminer"
+      - "traefik.backend=naturalis-em"
       - "traefik.docker.network=web"
       - "traefik.enable=true"
-      - "traefik.port=8080"
-      - ${ADMINER_URL_CONFIG:-traefik.frontend.rule=Host:adminer.docker.localhost}
-#      - ${ADMINER_AUTH:-traefik.frontend.auth.basic=admin:$apr1$LYKt7KdG$E49juU2GNNCE.23VscQ.P0}
+      - "traefik.port=5500"
+      - ${EM_URL_CONFIG:-traefik.frontend.rule=Host:em.docker.localhost}
+#      - ${EM_AUTH:-traefik.frontend.auth.basic=admin:$apr1$LYKt7KdG$E49juU2GNNCE.23VscQ.P0}
 
   sqlcl:
     build: ./sqlcl
