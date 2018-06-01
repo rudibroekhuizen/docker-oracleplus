@@ -50,8 +50,6 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ${TRAEFIK_TOML_FILE:-./traefik/traefik.toml}:/traefik.toml
-      - ${ACME_JSON:-./traefik/acme.json}:/acme.json
-#   container_name: traefik
     labels:
       - "traefik.enable=true"
       - "traefik.port=8080"
@@ -145,3 +143,4 @@ volumes:
   grafana_data:
   schemaspy_data:
   oraclelog:
+  sqlpad:
