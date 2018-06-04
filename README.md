@@ -9,7 +9,7 @@ Build Oracle docker image (https://github.com/oracle/docker-images/tree/master/O
 cd ~/
 git clone https://github.com/oracle/docker-images
 cd docker-images/OracleDatabase/dockerfiles
-./buildDockerImage.sh -v 12.2.0.1 -e
+./buildDockerImage.sh -v 12.2.0.1 -s
 ```
 Install Docker
 Set max_map_count for Elasticsearch: 
