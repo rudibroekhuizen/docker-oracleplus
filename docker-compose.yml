@@ -2,7 +2,7 @@ version: '3'
 
 services:
   oracle:
-    image: oracle/database:12.2.0.1-ee
+    image: oracle/database:12.2.0.1-se2
     environment:
       ORACLE_SID: ORCLCDB
       ORACLE_PDB: ORCLPDB1
